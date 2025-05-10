@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MemoryMap - Digital Scrapbook</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    #map { height: 100vh; }
+    .memory-form {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .memory-form input, .memory-form textarea, .memory-form button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="memory-form" id="memoryForm">
+    <h3>Add a Memory</h3>
+    <input type="text" id="title" placeholder="Memory Title" />
+    <textarea id="story" placeholder="Your story..."></textarea>
+    <input type="file" id="photo" accept="image/*" />
+    <button onclick="saveMemory()">Save Memory</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([20, 0], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let currentLatLng = null;
+
+    map.on('click', function(e) {
+      currentLatLng = e.latlng;
+      document.getElementById('memoryForm').style.display = 'block';
+    });
+
+    function saveMemory() {
+      const title = document.getElementById('title').value;
+      const story = document.getElementById('story').value;
+      const photoInput = document.getElementById('photo');
+      const photo = photoInput.files[0];
+
+      if (!title || !story || !photo || !currentLatLng) {
+        alert('Please fill all fields and select a location.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imageUrl = e.target.result;
+
+        const popupContent = `
+          <strong>${title}</strong><br>
+          <img src="${imageUrl}" alt="Memory" style="width:100px; height:auto;"><br>
+          <p>${story}</p>
+        `;
+
+        L.marker(currentLatLng).addTo(map)
+          .bindPopup(popupContent);
+
+        document.getElementById('memoryForm').reset();
+        document.getElementById('memoryForm').style.display = 'none';
+      };
+      reader.readAsDataURL(photo);
+    }
+  </script>
+</body>
+</html>

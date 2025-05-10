@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Day Event</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+            background: url('c:\Users\achus\OneDrive\Desktop\image\sport1.jpg') no-repeat center center fixed; /* Background Image */
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Overlay to make text readable */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #e68900;
+        }
+
+        /* Sections */
+        section {
+            background: rgba(255, 255, 255, 0.1); /* Light overlay */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Sports Day Celebration 2025</h1>
+        <button onclick="scrollToSection('registration')">Register Now</button>
+    </header>
+
+    <!-- Event Details Section -->
+    <section id="event-details">
+        <h2>Event Details</h2>
+        <p><strong>Date:</strong> March 25, 2025</p>
+        <p><strong>Location:</strong> KRCE ground</p>
+        <p><strong>Contact:</strong> sports@xyz.com</p>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration">
+        <h2>Register for the Event</h2>
+        <form id="registrationForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <select id="sport" required>
+                <option value="">Select Sport</option>
+                <option>Football</option>
+                <option>Basketball</option>
+                <option>Running</option>
+                <option>shuttle</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <h2>Event Schedule</h2>
+        <ul>
+            <li>10:00 AM - Opening Ceremony</li>
+            <li>11:00 AM - 100m Sprint</li>
+            <li>1:00 PM - Football Match</li>
+            <li>3:00 PM - Basketball Finals</li>
+        </ul>
+    </section>
+
+    <!-- Live Scoreboard -->
+    <section id="scoreboard">
+        <h2>Live Scoreboard</h2>
+        <p>Scores will be updated live during the event.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>2025 Sports Day</p>
+    </footer>
+
+    <script>
+        // Scroll to Section
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Registration Form Submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let sport = document.getElementById('sport').value;
+
+            if (!name || !email || !sport) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            let student = { name, email, sport };
+            let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
+            registrations.push(student);
+            localStorage.setItem('registrations', JSON.stringify(registrations));
+
+            alert("Registration Successful!");
+            document.getElementById('registrationForm').reset();
+        });
+    </script>
+
+</body>
+</html>
