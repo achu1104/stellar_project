@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Courses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    #courses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+      gap: 20px;
+    }
+
+    .course {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .course:hover {
+      transform: scale(1.02);
+    }
+
+    .course img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .course h2 {
+      font-size: 1.4em;
+      margin: 10px 0 5px 0;
+    }
+
+    .course p {
+      color: #555;
+    }
+
+    .enroll-btn {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .enroll-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Learn Something New Today! 🚀</h1>
+    <p>Explore our best online courses</p>
+  </header>
+
+  <section id="courses">
+    <!-- Courses will be inserted here by JavaScript -->
+  </section>
+
+  <script>
+    const courses = [
+      {
+        title: "Master Instagram Stories",
+        description: "Learn how to create stunning and viral Instagram Stories for your brand.",
+        price: 29,
+        image: "https://source.unsplash.com/featured/?instagram"
+      },
+      {
+        title: "Finance Management 101",
+        description: "Manage your finances like a pro. Budgeting, saving, and investing made simple!",
+        price: 49,
+        image: "https://source.unsplash.com/featured/?finance"
+      },
+      {
+        title: "Create Awesome Websites",
+        description: "Learn HTML, CSS, and JavaScript to build beautiful websites from scratch!",
+        price: 59,
+        image: "https://source.unsplash.com/featured/?webdesign"
+      },
+      {
+        title: "Photography for Beginners",
+        description: "Master your camera settings and start taking professional photos today!",
+        price: 39,
+        image: "https://source.unsplash.com/featured/?photography"
+      }
+    ];
+
+    const coursesContainer = document.getElementById('courses');
+
+    courses.forEach(course => {
+      const courseDiv = document.createElement('div');
+      courseDiv.className = 'course';
+      courseDiv.innerHTML = `
+        <img src="${course.image}" alt="${course.title}">
+        <h2>${course.title}</h2>
+        <p>${course.description}</p>
+        <p><strong>Price:</strong> $${course.price}</p>
+        <button class="enroll-btn">Enroll Now</button>
+      `;
+      coursesContainer.appendChild(courseDiv);
+    });
+
+    // Simple enroll button action
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('enroll-btn')) {
+        alert('Thank you for enrolling! 🎉');
+      }
+    });
+  </script>
+
+</body>
+</html>

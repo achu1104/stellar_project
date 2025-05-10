@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    background-image: url("bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    background-image: url("bg5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: cursive;
+    font-size: larger;
+
+    color: rgba(56, 5, 111, 0.996);
+    padding: 1em;
+    text-align: center;
+    position:relative;
+}
+
+.cart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+}
+
+.cake-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em 0;
+}
+
+.cake {
+    background-color: white;
+    padding: 1em;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 200px;
+}
+
+.cake-img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1em;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    margin: 2em 0;
+}
+
+#checkout-btn {
+    background-color: rgb(212, 22, 158);
+    padding: 1em 2em;
+    color:whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+#checkout-btn:hover {
+    background-color: rgb(11, 107, 45);
+}

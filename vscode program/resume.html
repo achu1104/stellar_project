@@ -1,0 +1,113 @@
+/* Frontend: HTML, CSS, and JavaScript */
+
+/* index.html */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Automated Resume Builder</h2>
+        <form id="resumeForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="date" id="dob" placeholder="Date of Birth" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="experience" placeholder="Work Experience" required></textarea>
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+}
+input, textarea {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+
+/* script.js */
+document.getElementById("resumeForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const dob = document.getElementById("dob").value;
+    const email = document.getElementById("email").value;
+    const experience = document.getElementById("experience").value;
+
+    const response = await fetch("http://localhost:5000/generate-resume", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, dob, email, experience })
+    });
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "resume.pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
+
+/* Backend: Node.js with Express */
+const express = require("express");
+const cors = require("cors");
+const pdfkit = require("pdfkit");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.post("/generate-resume", (req, res) => {
+    const { name, dob, email, experience } = req.body;
+    const doc = new pdfkit();
+    res.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
+    res.setHeader("Content-Type", "application/pdf");
+    
+    doc.pipe(res);
+    doc.fontSize(24).text("Resume", { align: "center" });
+    doc.fontSize(18).text(`Name: ${name}`);
+    doc.text(`Date of Birth: ${dob}`);
+    doc.text(`Email: ${email}`);
+    doc.text(`Experience: ${experience}`);
+    doc.end();
+});
+
+app.listen(5000, () => console.log("Server running on port 5000"));

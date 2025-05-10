@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            gap: 0;
+            border: 2px solid burlywood;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .square img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+
+        .white {
+            background-color: #f0f0f0;
+        }
+
+        .black {
+            background-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="chessboard">
+        <!-- Row 1: Black pieces -->
+        <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c1.webp" alt="Rook Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c2.png" alt="knight Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c3.jpeg" alt="bishop Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c4.jpg" alt="queen Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c5.jpg" alt="king Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c3.jpeg" alt="bishop Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c2.png" alt="knight Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c1.webp" alt="Rook Black"></div>
+
+        <!-- Row 2: Black pawns -->
+        <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+
+        <!-- Row 3 to Row 6: Empty squares -->
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+        <div class="square black"></div>
+        <div class="square white"></div>
+
+        <!-- Row 7: White pawns -->
+        <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+        <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c6.png" alt="Pawn Black"></div>
+
+        <!-- Row 8: White pieces -->
+        <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c1.webp" alt="Rook Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c2.png" alt="knight Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c3.jpeg" alt="bishop Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c4.jpg" alt="queen Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c5.jpg" alt="king Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c3.jpeg" alt="bishop Black"></div>
+            <div class="square black"><img src="c:\Users\achus\OneDrive\Desktop\image\c2.png" alt="knight Black"></div>
+            <div class="square white"><img src="c:\Users\achus\OneDrive\Desktop\image\c1.webp" alt="Rook Black"></div>
+    </div>
+</body>
+</html>

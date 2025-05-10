@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Invitation</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url("c:\Users\achus\OneDrive\Desktop\image\mrg2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .invitation {
+            background: rgba(255, 235, 205, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+        }
+        .invitation img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .btn {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+        #message {
+            display: none;
+            font-size: 18px;
+            color: #333;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation">
+        <h2>Wedding Invitation</h2>
+        <h3>Achu WEDS xyz</h3>
+        <img src="c:\Users\achus\OneDrive\Desktop\image\mrg1.jpg" alt="Wedding Image">
+        <p>Join us in celebrating our special day!</p>
+        <p><strong>Date:</strong>14/04/2030</p>
+        <p><strong>Venue:</strong> Signature Wedding Hall,Mayiladuthurai</p>
+        <button class="btn" onclick="showMessage()">Click for a Special Message</button>
+        <p id="message">We can't wait to celebrate with you! Thank you for your love and support.</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+</body>
+</html>

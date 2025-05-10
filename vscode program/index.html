@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Courses</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #6a68de;
+            color: white;
+            padding: 50px;
+        }
+        #courses {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .course {
+            background: #7ebfa5;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 250px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course img {
+            width: 100%;
+            height:auto;
+            border-radius: 10px;
+        }
+        button {
+            background: #2f7142;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #257838;
+        }
+        #enrolled-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 2px solid #007bff;
+        }
+        #students-list {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ONLINE COURSE REGISTRATION</h1>
+    </header>
+    
+    <section id="courses">
+        <div class="course" id="python">
+            <img src="c:\Users\achus\OneDrive\Desktop\image\py1.jpg" alt="Python Course">
+            <h2>Python Course</h2>
+            <p>Learn Python from basics to advanced.</p>
+            <p>Fees:$250/month</p>
+            <button onclick="enroll('Python')">Enroll Now</button>
+        </div>
+        <div class="course" id="cpp">
+            <img src="c:\Users\achus\OneDrive\Desktop\image\C++1.jpg" alt="C++ Course">
+            <h2>C++ Course</h2>
+            <p>Master C++ programming skills.</p>
+            <p>Fees:$200/month</p>
+            <button onclick="enroll('C++')">Enroll Now</button>
+        </div>
+        <div class="course" id="java">
+            <img src="c:\Users\achus\OneDrive\Desktop\image\java1.webp" alt="Java Course">
+            <h2>Java Course</h2>
+            <p>Comprehensive Java course for all levels.</p>
+            <p>Fees:$500/month</p>
+            <button onclick="enroll('Java')">Enroll Now</button>
+        </div>
+        <div class="course" id="cp">
+            <img src="c:\Users\achus\OneDrive\Desktop\image\cp1.webp" alt="Competitive Programming">
+            <h2>Competitive Programming</h2>
+            <p>Sharpen your problem-solving skills.</p>
+            <p>Fees:$350/month</p>
+            <button onclick="enroll('Competitive Programming')">Enroll Now</button>
+        </div>
+    </section>
+    
+    <section id="enrolled-section">
+        <h2>Enrolled Students</h2>
+        <button onclick="showEnrolledStudents()">Show Enrolled Students</button>
+        <ul id="students-list"></ul>
+    </section>
+    
+    <script>
+        let enrolledStudents = [];
+        
+        function enroll(courseName) {
+            let studentName = prompt("Enter your name to enroll in " + courseName + " course:");
+            if (studentName) {
+                enrolledStudents.push({ name: studentName, course: courseName });
+                alert(studentName + " has enrolled in " + courseName + " course!");
+            }
+        }
+        
+        function showEnrolledStudents() {
+            let studentListElement = document.getElementById("students-list");
+            studentListElement.innerHTML = "";
+            if (enrolledStudents.length === 0) {
+                studentListElement.innerHTML = "<li>No students enrolled yet.</li>";
+                return;
+            }
+            enrolledStudents.forEach(student => {
+                let li = document.createElement("li");
+                li.textContent = `${student.name} - ${student.course}`;
+                studentListElement.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

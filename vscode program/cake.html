@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Shop</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <header>
+        <h1>Amazing Bites</h1>
+        <div class="cart">
+            <span id="cart-count">0</span> items in cart
+        </div>
+    </header>
+    <section class="cake-list">
+        <div class="cake">
+            <img src="cake1.jpg" alt="Chocolate Cake" class="cake-img">
+            <h2>Chocolate Cake</h2>
+            <p>Price: $25</p>
+            <button onclick="addToCart(25)">Add to Cart</button>
+        </div>
+        <div class="cake">
+            <img src="cake2.jpg" alt="Vanilla Cake" class="cake-img">
+            <h2>Vanilla Cake</h2>
+            <p>Price: $20</p>
+            <button onclick="addToCart(20)">Add to Cart</button>
+        </div>
+        <div class="cake">
+            <img src="cake3.jpg" alt="Strawberry Cake" class="cake-img">
+            <h2>Strawberry Cake</h2>
+            <p>Price: $30</p>
+            <button onclick="addToCart(30)">Add to Cart</button>
+        </div>
+        <div class="cake">
+            <img src="cake4.jpg" alt="Pineapple Cake" class="cake-img">
+            <h2>Pineapple Cake</h2>
+            <p>Price: $30</p>
+            <button onclick="addToCart(30)">Add to Cart</button>
+        </div>
+
+    </section>
+    <footer>
+        <button id="checkout-btn">Checkout</button>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
